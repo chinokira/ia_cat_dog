@@ -115,23 +115,24 @@ cat_and_dog_ia/
 ## État actuel du projet
 
 ### Git status:
-- Branche: `main`
-- Fichiers stagés:
-  - Configuration PyCharm (.idea/*)
-  - claude.md (ce fichier)
-- Commits récents:
+- Branche: `development` (branche active)
+- Branche: `main` (branche de production)
+- Commits récents sur development:
+  - `b279a9ef` - fix: Re-add cat_dog_model.keras to repository
+  - `17bea4e8` - chore: Add .gitignore and remove data/models from tracking
+  - `e0a04ab4` - feat: Add Docker containerization and complete documentation
   - `025584dd` - init
-  - `900fefb4` - first commit
 
 ### Fichiers principaux:
 - ✅ main.py (211 lignes) - Script d'entraînement complet
 - ✅ app_chat_chien.py (225 lignes) - Interface GUI avec mode auto anti-bug
-- ✅ cat_dog_model.keras (24.6 MB) - Modèle entraîné
-- ✅ data/train/ - Dataset organisé
+- ✅ cat_dog_model.keras (24.6 MB) - Modèle entraîné (inclus dans git)
+- ✅ data/train/ - Dataset organisé (exclu de git via .gitignore)
 - ✅ requirements.txt - Dépendances Python (tensorflow, numpy, matplotlib, Pillow)
 - ✅ Dockerfile - Configuration Docker (Python 3.10-slim + tkinter)
 - ✅ docker-compose.yml - Orchestration avec profiles (train, app)
 - ✅ .dockerignore - Exclusions Docker (.git, .venv, .idea, etc.)
+- ✅ .gitignore - Exclusions Git (data/, .idea/, .venv/, etc.)
 - ✅ README.md - Documentation complète pour utilisateurs
 
 ## Améliorations possibles
@@ -200,5 +201,49 @@ cat_and_dog_ia/
 - Pillow>=10.0.0
 - tkinter (standard library)
 
+## Gestion Git
+
+### Structure des branches:
+- **main**: Branche de production (stable)
+- **development**: Branche de développement (active)
+
+### Fichiers exclus (.gitignore):
+- **data/**: Tous les datasets (trop volumineux)
+- **Modèles**: cat_dog_model.keras est INCLUS, autres formats exclus (*.pb, *.pth, etc.)
+- **IDE**: .idea/, .vscode/, .claude/
+- **Python**: __pycache__/, .venv/, *.pyc
+- **Logs**: *.log, *.tmp
+
+### Workflow Git:
+1. Développement sur branche `development`
+2. Tests et validation
+3. Merge vers `main` quand stable
+
+## Historique des modifications (2026-01-06)
+
+### Session 1: Initialisation Documentation
+- ✅ Création du fichier claude.md avec documentation complète
+- ✅ Documentation de l'architecture et des composants
+
+### Session 2: Containerisation Docker
+- ✅ Création Dockerfile (Python 3.10-slim + tkinter)
+- ✅ Création docker-compose.yml (profiles train/app)
+- ✅ Création requirements.txt
+- ✅ Création .dockerignore
+- ✅ Documentation complète dans README.md
+- ✅ Commit: `e0a04ab4` - "feat: Add Docker containerization and complete documentation"
+
+### Session 3: Configuration Git
+- ✅ Création branche `development`
+- ✅ Création .gitignore complet
+- ✅ Suppression data/ du tracking git (~25000 fichiers)
+- ✅ Suppression .idea/, .claude/ du tracking
+- ✅ Commit: `17bea4e8` - "chore: Add .gitignore and remove data/models from tracking"
+
+### Session 4: Correction Modèle Keras
+- ✅ Réintégration cat_dog_model.keras dans git (à la demande utilisateur)
+- ✅ Mise à jour .gitignore pour exclure uniquement autres formats modèles
+- ✅ Commit: `b279a9ef` - "fix: Re-add cat_dog_model.keras to repository"
+
 ---
-**Dernière mise à jour:** 2026-01-06
+**Dernière mise à jour:** 2026-01-06 (Session 4)
