@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  # Service pour l'entraînement du modèle
+  train:
+    build: .
+    image: cat-dog-ia:latest
+    container_name: cat-dog-train
+    command: python main.py
+    volumes:
+      - ./data:/app/data
+      - ./cat_dog_model.keras:/app/cat_dog_model.keras
+    environment:
+      - PYTHONUNBUFFERED=1
+    profiles:
+      - train
+
+  # Service pour l'application GUI (nécessite X11 forwarding sur Linux)
+  app:
+    build: .
+    image: cat-dog-ia:latest
+    container_name: cat-dog-app
+    command: python app_chat_chien.py
+    volumes:
+      - ./cat_dog_model.keras:/app/cat_dog_model.keras
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    environment:
+      - DISPLAY=${DISPLAY}
+      - PYTHONUNBUFFERED=1
+    network_mode: host
+    profiles:
+      - app
