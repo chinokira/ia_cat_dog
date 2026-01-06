@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  # Backend FastAPI
+  backend:
+    build: ./backend
+    container_name: cat-dog-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - ./cat_dog_model.keras:/app/cat_dog_model.keras
+    environment:
+      - PYTHONUNBUFFERED=1
+    networks:
+      - cat-dog-network
+
+  # Frontend Vue.js
+  frontend:
+    build: ./frontend
+    container_name: cat-dog-frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - VITE_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+    networks:
+      - cat-dog-network
+
+networks:
+  cat-dog-network:
+    driver: bridge

@@ -64,3 +64,8 @@ htmlcov/
 .mypy_cache/
 .dmypy.json
 dmypy.json
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
