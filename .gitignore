@@ -1,0 +1,67 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Claude Code
+.claude/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Data (datasets ne doivent pas être versionnés)
+data/
+*.csv
+*.json
+*.h5
+
+# Models (fichiers de modèles entraînés - trop volumineux pour git)
+*.keras
+*.h5
+*.pb
+*.ckpt
+*.pth
+*.pt
+*.weights
+
+# Logs et fichiers temporaires
+*.log
+*.tmp
+*.bak
+*.swp
+logs/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
