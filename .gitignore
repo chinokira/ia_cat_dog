@@ -37,8 +37,7 @@ data/
 *.h5
 
 # Models (fichiers de modèles entraînés - trop volumineux pour git)
-*.keras
-*.h5
+# Note: cat_dog_model.keras est inclus dans le repo
 *.pb
 *.ckpt
 *.pth
